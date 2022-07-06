@@ -26,8 +26,8 @@ const Create = ()=> {
     .map((movie, i) => {
         return (
             <>
-            <fieldset key={i}  style={{display: "flex", margin:"30px"}}>
-            <img src={`https://image.tmdb.org/t/p/w500/` + movie.poster_path} alt="Poster" width="200" height="300"></img>
+            <fieldset key={i}  style={{display: "flex", margin:"30px", borderRadius: "10px"}}>
+            <img src={`https://image.tmdb.org/t/p/w500/` + movie.poster_path} alt="Poster" width="200" height="300" style={{borderRadius: "10px"}}></img>
             <div style={{margin:"30px"}}>
                 <h2>{movie.title}</h2>
                 <p>Overview: {movie.overview}</p>
@@ -63,18 +63,14 @@ const Create = ()=> {
     return (
         <>
         <h2>Welcome!</h2>
-        <div style={{display: "flex", justifyContent: "space-around"}}>
+        <div style={{display: "flex", justifyContent: "space-between"}}>
             <h2>Choose the movie you have watched: </h2>
             <div style={{margin: "10px"}}>
-            <input type="text"></input>
-            <button >Search</button>
             </div>
         </div>
         
         <br></br>
-        <div style={{float: "right"}}>
-        <button onClick={() => handleSave()} >Save</button>
-        </div>
+        
         <div>
             {displayMovies}
             <ReactPaginate 
@@ -88,6 +84,9 @@ const Create = ()=> {
             disabledClassName={"pad"}
 
         />
+        <div style={{display: "flex", justifyContent: "center"}}>
+        <button onClick={() => handleSave()} style={{backgroundColor: "white", width: "50px", height: "25px"}}>Save</button>
+        </div>
         </div>
         
         
